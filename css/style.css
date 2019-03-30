@@ -1,0 +1,66 @@
+.navbar img{height: 70px}
+
+html, body, head, .intro {
+    height: 100%;
+}
+.intro {
+    background: url("../fon.jpg") no-repeat center center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    }
+
+
+/*делает цветным, когда уходит с верхней позиции*/
+.top-nav-collapse {
+    background-color: firebrick;
+}
+
+
+/*на маленьких экрнах будет navbar всегда в цвете
+    хотя по факту он делает определенный цвет navbar в положении сверху
+    для определенного устрйства*/
+@media (max-width: 768px) {
+    .navbar:not(.top-nav-collapse){
+        background: yellow;
+    }
+}
+#gallery1 img{
+    height: 350px;}
+
+.map-container-2{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.map-container-2 iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+/*
+•	width — ширина контента, т.е. содержимого блока;
+•	padding-left и padding-right — поле слева и справа от контента;
+•	border-left и border-right — толщина границы слева и справа;
+•	margin-left и margin-right — отступ слева и справа.
+*/
+#id123{
+    font-size: 20px;
+    color: #6f42c1;
+    padding-left: 30px;
+}
+/* должно подчеркивать выделенное при наведении, но хз
+#nav_button_hr a:hover {
+    border-bottom: #6f42c1 2px;}
+*/
+
+.page-footer li {
+    list-style-type: none;
+}
+
+.page-footer li:hover {
+    font-size: larger;
+}

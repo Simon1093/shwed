@@ -1,0 +1,115 @@
+.navbar a{
+    color: white;
+}
+
+
+.dropdown-menu  a{
+color: #0f6674;
+}
+.dropdown-menu a:hover{
+    background: #1c2331;
+    color: white;
+}
+.page-footer{
+    color: white;
+    background: #1c2331
+}
+.page-footer  a{
+    list-style-type: none;
+}
+
+.lineheight p{
+    font-size: small;
+    line-height: 100%;
+    color: dark-grey;
+}
+
+
+.sticky {
+    position: static; /* указываем перед sticky */
+    position: sticky;
+    top: 0px; /* обязательно указываем позицию элемента */
+}
+/*для одинаковой длины товаров*/
+.row-flex, .row-flex > div[class*='col-'] {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex:1 1 auto;
+}
+.row-flex-wrap {
+    -webkit-flex-flow: row wrap;
+    align-content: flex-start;
+    flex:0;
+}
+.row-flex > div[class*='col-'] {
+    margin:-.2px;
+}
+
+.formforlink a{
+    color: #000;
+    text-align: right;
+}
+
+
+.grey_text i
+{
+    color: grey;
+    font: lighter;
+}
+
+
+
+/*navbar.php картинка*/
+body, html {
+    height: 100%;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("img/navbarfonn.jpeg");
+
+    /* Full height */
+    height: 50%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/*navbar2.php*/
+.navbar img{height: 70px}
+
+html, body, head, .intro {
+    height: 100%;
+}
+.intro {
+    background-image: url("img/navbarfonn.jpeg") no-repeat center center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+}
+
+
+/*делает цветным, когда уходит с верхней позиции*/
+.top-nav-collapse {
+    background-color: firebrick;
+}
+
+
+
+
+/*.topnav {*/
+    /*background-color: #9fa8da;*/
+/*}*/
+
+/*.nav-item a:hover {*/
+   /*text-decoration-line: underline;*/
+/*}*/
+
+/*.view {*/
+    /*background-color: #0f6674;*/
+/*}*/
