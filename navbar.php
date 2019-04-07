@@ -1,3 +1,4 @@
+<?require_once "includeSession.php"?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/mdb.min.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
+<!--        <link href="css/style.css" rel="stylesheet">-->
         <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
@@ -25,7 +26,7 @@
     <title><?echo $title;?></title>
 </head>
 
-<header>
+<header class="">
    <nav class="navbar navbar-expand-lg navbar-dark unique-color-dark fixed-top scrolling-navbar navtop ">
         <a class="navbar-brand animated heartBeat " href="index.php">ШВЕД</a>
 
@@ -71,8 +72,28 @@
                 <div class="md-form my-0" >
 <!--                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="искать" >-->
 <!--                   регистрация-->
-                    <a href="autorithetion.php"><i class="fas fa-user-alt " style="margin-right: 20px"></i> </a>
-                    <a href="registration.php"><i class="fas fa-user-plus "></i> </a>
+                    <?
+                    if(isset($_SESSION['id']))
+                    {
+                        $id_user = $_SESSION['id'] ;
+                        $name_user = $_SESSION['name'];
+                    ?>
+
+                        <a href="seeLater.php"><i class="fa fa-clock" aria-hidden="true" style="margin-right: 20px"></i></a>
+                        <a href="likeproducts.php"><i class="fa fa-heart" aria-hidden="true" style="margin-right: 20px"></i> </a>
+                        <a href="out.php"><i class="fas fa-user-times " style="margin-right: 20px"></i> </a>
+
+                    <?
+                    }
+                    else
+                    {?>
+                        <a href="autorithetion.php"><i class="fas fa-user-alt " style="margin-right: 20px"></i> </a>
+                        <a href="registration.php"><i class="fas fa-user-plus "></i> </a>
+                    <?
+                    }
+                    ?>
+
+?>
                     <!--                    <button class="btn btn-outline-white btn-sm" ><a href="signin.php">вход</a></button>-->
                 </div>
             </form>
@@ -83,26 +104,27 @@
 
 </header>
 <body>
+<div class="row  mt-5 "></div>
 <?
 $mysqli = new mysqli("localhost", "root", "","ecosite");
 $mysqli->query("SET NAMES 'utf8`");
 ?>
 
-<div class=" bg mask rgba-black-strong mt-5">
-    <div class="container-fluid d-flex align-items-center justify-content-center h-100">
-        <div class="row d-flex justify-content-center text-center">
-            <div class="col-10">
-                <h3 class=" white-text ">
-                    Добро пожаловать
-                </h3>
-                <hr color="white">
-                <h5 class="white-text my-4 "> мы очень рады, что вы посетели<a href="">
-                        <span class="badge badge-light"> наш сайт </span></a> </h5>
-                <button class="btn btn-sm btn-outline-white waves-effect waves-light">
-                        Read More <i class="fa fa-book"></i>
-                </button>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+<!--<div class=" bg mask rgba-black-strong mt-5">-->
+<!--    <div class="container-fluid d-flex align-items-center justify-content-center h-100">-->
+<!--        <div class="row d-flex justify-content-center text-center">-->
+<!--            <div class="col-10">-->
+<!--                <h3 class=" white-text ">-->
+<!--                    Добро пожаловать-->
+<!--                </h3>-->
+<!--                <hr color="white">-->
+<!--                <h5 class="white-text my-4 "> мы очень рады, что вы посетели<a href="">-->
+<!--                        <span class="badge badge-light"> наш сайт </span></a> </h5>-->
+<!--                <button class="btn btn-sm btn-outline-white waves-effect waves-light">-->
+<!--                        Read More <i class="fa fa-book"></i>-->
+<!--                </button>-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->

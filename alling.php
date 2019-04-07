@@ -1,4 +1,6 @@
-<? require "navbar.php"; ?>
+<?
+$title = "Все ингридиенты продукта";
+require "navbar.php"; ?>
 <?
 if ($_GET['id']){
 //присвоим значение из get в переменную
@@ -9,9 +11,9 @@ $sql2 = "SELECT * FROM `products` WHERE `id` = $id";
 $res2 = mysqli_query( $mysqli, "SELECT * FROM `products` WHERE `id` = $id");
 $r2= mysqli_fetch_array($res2);
 
-$sql4 = "SELECT * FROM `ingridiens` WHERE `id_ingredients` = $id";
-$res4 = mysqli_query( $mysqli, "SELECT * FROM `ingridiens` WHERE `id_ingredients` = $id");
-$r4= mysqli_fetch_array($res4);
+$sql3 = "SELECT * FROM `ingridiens`";
+$res3 = mysqli_query( $mysqli, "SELECT * FROM `ingridiens`");
+$r3 = mysqli_fetch_all($res3, MYSQLI_ASSOC);
 ?>
 
 
@@ -21,24 +23,34 @@ $r4= mysqli_fetch_array($res4);
     <p> оценка продукта инфографика</p>
     <?
     $ing = $r2['ingredients'];
-    $ing1 = explode(",", $ing);
+    $ing1 = explode(", ", $ing);
     $ing_lenght = count($ing1);
     ?>
-    <?
-// подключение ИНГРЕДИЕНТЫ
-  $sql3 = "SELECT * FROM `ingridiens`";
-  $res3 = mysqli_query( $mysqli, "SELECT * FROM `ingridiens`");
-  ?>
 
-<?foreach ($ing1 as $i) { ?>
+
+<?foreach ($ing1 as $i) {
+    ?>
+
     <div class="row ">
+        <?
+        foreach ($r3 as $ing) {
+        if($ing['name_en'] == $i) {
+        ?>
         <div class="col-1"></div>
         <div class="col-2">
+
             <p>оценка</p>
         </div>
         <div class="col-8 " >
 <!--            // сделать больше шрифт-->
-            <h4 style="text-transform: uppercase"> <span class="badge badge-light font-weight-bold "><? echo $i;?></span></h4>
+            <h4 style="text-transform: uppercase"> <span class="badge badge-light font-weight-bold ">
+
+                        <? echo $i; ?>
+
+
+
+
+                </span></h4>
             <div class="row">
                 <div class="col-12">
                 <hr>
@@ -51,8 +63,8 @@ $r4= mysqli_fetch_array($res4);
                 </div>
                 <div class="col-1"></div>
                 <div class="col-8">
-                    <p> <? echo $r4['orign'];
-                        if(empty($r4['orign'])){
+                    <p> <? echo $ing['orign'];
+                        if(empty($ing['orign'])){
                             echo " неизвестно ";};?> </p>
                 </div>
             </div>
@@ -62,8 +74,8 @@ $r4= mysqli_fetch_array($res4);
                 </div>
                 <div class="col-1"></div>
                 <div class="col-8">
-                    <p> <? echo $r4['name_en'];
-                        if(empty($r4['name_en'])){
+                    <p> <? echo $ing['name_en'];
+                        if(empty($ing['name_en'])){
                             echo " неизвестно ";}; ?> </p>
                 </div>
             </div>
@@ -73,8 +85,8 @@ $r4= mysqli_fetch_array($res4);
                 </div>
                 <div class="col-1"></div>
                 <div class="col-8">
-                    <p><? echo $r4['descriotions'];
-                        if(empty($r4['descriotions'])){
+                    <p><? echo $ing['descriotions'];
+                        if(empty($ing['descriotions'])){
                             echo " пока нет описания ";}; ?></p>
                 </div>
             </div>
@@ -84,8 +96,8 @@ $r4= mysqli_fetch_array($res4);
                 </div>
                 <div class="col-1"></div>
                 <div class="col-8">
-                    <p><? echo $r4['synonims'];
-                        if(empty($r4['synonims'])){
+                    <p><? echo $ing['synonims'];
+                        if(empty($ing['synonims'])){
                             echo " нет ";};
                         ?></p>
                 </div>
@@ -96,8 +108,8 @@ $r4= mysqli_fetch_array($res4);
                 </div>
                 <div class="col-1"></div>
                 <div class="col-8">
-                    <p><? echo $r4['positive_results'];
-                        if(empty($r4['positive_results'])){
+                    <p><? echo $ing['positive_results'];
+                        if(empty($ing['positive_results'])){
                             echo " пока ничего неизвестно ";}; ?></p>
                 </div>
             </div>
@@ -107,13 +119,14 @@ $r4= mysqli_fetch_array($res4);
                 </div>
                 <div class="col-1"></div>
                 <div class="col-8">
-                    <p><? echo $r4['negative_results'];
-                        if(empty($r4['negative_results'])){
+                    <p><? echo $ing['negative_results'];
+                        if(empty($ing['negative_results'])){
                             echo " пока ничего неизвестно ";};?></p>
                 </div>
         </div>
     </div>
 
+        <?}}?>
 
 </div>
 <? }; ?>

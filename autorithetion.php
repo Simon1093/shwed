@@ -1,4 +1,6 @@
-<?require "navbar.php";?>
+<?
+$title = "Авторизация";
+require "navbar.php";?>
 
 
 
