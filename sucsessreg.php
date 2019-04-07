@@ -1,4 +1,6 @@
-<?require "navbar.php";?>
+<?
+$title = "Авторизация";
+require "navbar.php";?>
 
 <?php
 if (isset($_POST['email_autorithetion'])) {
@@ -20,7 +22,7 @@ if (empty($email_autorithetion) or empty($password_autorithetion)) //если п
     <div class="container ">
         <div class="row text-center mt-3 ">
             <div class="col">
-                <div class=" alert alert-danger  justify-content-center  ">
+                <div class=" alert alert-danger  justify-content-center mt-5  ">
                     <?echo ("Вы ввели не всю информацию, вернитесь назад и заполните все поля!");?>
                     <br>
                     <a href="autorithetion.php" > ВЕРНУТЬСЯ К АВТОРИЗАЦИИ.</a>
@@ -54,7 +56,7 @@ else {
         <div class="container ">
             <div class="row text-center mt-3 ">
                 <div class="col">
-                    <div class=" alert alert-danger  justify-content-center  ">
+                    <div class=" alert alert-danger  justify-content-center mt-5  ">
                         <?echo "Мы не нашли такого email у нас :(";?>
                         <br>
                         <p> Но мы с радостью можем Вас зарегистрировать
@@ -69,19 +71,31 @@ else {
             <div class="container ">
                 <div class="row text-center mt-3 ">
                     <div class="col">
-                        <div class=" alert alert-success  justify-content-center  ">
-                            <? echo "Супер! Ты авторизован.";?>
+                        <div class=" alert alert-success  justify-content-center mt-5 ">
+                            <?
+                            $_SESSION['email'] = $r3['email'];
+                            $_SESSION['id'] = $r3['id'];
+                            $_SESSION['name'] = $r3['name'];
+                            $_SESSION['id'] = $r3['id'];
+
+                            echo "Супер, ".$_SESSION['name']."! Авторизация прошла успешно."."<br>"."Добро пожаловать!";
+                            ?>
                             <br>
                                 <a href="" > </a></p>
                         </div>
                     </div>
                 </div>
             </div>
+            <script>
+                setTimeout(function () {
+                    window.location = 'index.php';
+                }, 3000);
+            </script>
         <?} else if ($password_autorithetion != $r3['password']) {?>
             <div class="container ">
                 <div class="row text-center mt-3 ">
                     <div class="col">
-                        <div class=" alert alert-danger  justify-content-center  ">
+                        <div class=" alert alert-danger  justify-content-center mt-5  ">
                             <?echo "Не тот пароль :( ";?>                            <br>
                             <a href="autorithetion.php" > ПОПРОБОВАТЬ СНОВА</a></p>
                         </div>
@@ -92,7 +106,7 @@ else {
             <div class="container ">
                 <div class="row text-center mt-3 ">
                     <div class="col">
-                        <div class=" alert alert-danger  justify-content-center  ">
+                        <div class=" alert alert-danger  justify-content-center mt-5  ">
                             <?echo "у нас технические неполадки, напишите нам !";?>
                             <a href="autorithetion.php" > ПОПРОБОВАТЬ СНОВА</a></p>
                         </div>

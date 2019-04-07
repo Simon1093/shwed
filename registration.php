@@ -1,4 +1,6 @@
-<?require "navbar.php";?>
+<?
+$title = "Регистрация";
+require "navbar.php";?>
 
 
 

@@ -1,4 +1,6 @@
-<?require "navbar.php";?>
+<?
+$title = "Регистрация";
+require "navbar.php";?>
 
 <?php
 if (isset($_POST['name_registration'])) {
@@ -17,12 +19,12 @@ if (isset($_POST['password_registration'])) {
         unset($password_registration);} }
 
 
-if (empty($name_registration) or empty($email_registration)or empty( $password_registration)) //если пользователь не ввел логин или пароль, то выдаем ошибку и останавливаем скрипт
+if (empty($name_registration) or empty($email_registration)or empty($password_registration)) //если пользователь не ввел логин или пароль, то выдаем ошибку и останавливаем скрипт
 {?>
     <div class="container ">
         <div class="row text-center mt-3 ">
             <div class="col">
-                <div class=" alert alert-danger  justify-content-center  ">
+                <div class=" alert alert-danger  justify-content-center mt-5  ">
                     <?echo ("Вы ввели не всю информацию, вернитесь назад и заполните все поля!");?>
                     <br>
                     <a href="registration.php" > ВЕРНУТЬСЯ К РЕГИСТРАЦИИ.</a>
@@ -63,7 +65,7 @@ else {
         <div class="container ">
             <div class="row text-center mt-3 ">
                 <div class="col">
-                    <div class=" alert alert-danger  justify-content-center  ">
+                    <div class=" alert alert-danger  justify-content-center  mt-5 ">
                         <?
                         echo "Извините, введённый вами email уже зарегистрирован. Введите другой email."; ?>
                         <br>
@@ -83,7 +85,7 @@ else {
             <div class="container">
                 <div class="row text-center mt-3">
                     <div class="col">
-                        <div class=" alert alert-success  justify-content-center  ">
+                        <div class=" alert alert-success  justify-content-center  mt-5 ">
                             <? echo "Вы успешно зарегистрированы! Теперь вы можете зайти на сайт. "; ?>
                             <br>
                             <a href='index.php'>ГЛАВНАЯ СТРАНИЦА</a>
@@ -95,7 +97,7 @@ else {
             <div class="container">
                 <div class="row text-center mt-3">
                     <div class="col">
-                        <div class=" alert alert-danger  justify-content-center  ">
+                        <div class=" alert alert-danger  justify-content-center  mt-5 ">
                             <? echo "Ошибка! Вы не зарегистрированы."; ?>
                         </div>
                     </div>

@@ -1,4 +1,6 @@
-<? require "navbar.php"; ?>
+<?
+$title = "Разбор ингредиента";
+require "navbar.php"; ?>
 
 <?
 if ($_GET['id']){

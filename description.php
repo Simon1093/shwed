@@ -21,6 +21,7 @@ $r2= mysqli_fetch_array($res2);
 //                    подключение ИНГРЕДИЕНТЫ
 $sql3 = "SELECT * FROM `ingridiens`";
 $res3 = mysqli_query( $mysqli, "SELECT * FROM `ingridiens`");
+$r3 = mysqli_fetch_all($res3, MYSQLI_ASSOC);
 ?>
 
 
@@ -36,12 +37,37 @@ $res3 = mysqli_query( $mysqli, "SELECT * FROM `ingridiens`");
                         <div class="mask rgba-white-slight"></div>
                     </a>
                 </div>
-                <button class="btnStyle waves-effect waves-light btn btn-sm ">
-                    <a  class="text-black-50 " href="description.php">Мне нравится  </a>
+
+
+
+
+
+
+
+                <button class="btnStyle waves-effect waves-light btn btn-sm " >
+                    <a  class="text-black-50 iLike " href="likeproducts.php?id=<?echo $r2['id'];?>" >Мне нравится  </a>
                 </button>
+
+
+
+
+
+
+
+
+
+
+
                 <button class="btnStyle waves-effect waves-light btn btn-sm ">
-                    <a  class="text-black-50 " href="description.php">Прочитать позже </a>
+                    <a  class="text-black-50 " href="seeLater.php?id=<?echo $r2['id'];?>">Прочитать позже </a>
                 </button>
+
+
+
+
+
+
+
                 <button class="btnStyle waves-effect waves-light btn btn-sm ">
 <!--                    // передает id продукта на ссылку-->
                     <a  class="text-black-50 " href="alling.php?id= <? echo $r2['id']?>"> Смотреть разбор всех ингридиентов </a>
@@ -58,88 +84,37 @@ $res3 = mysqli_query( $mysqli, "SELECT * FROM `ingridiens`");
             <div>
                 <?
                 $ing = $r2['ingredients'];
-                $ing1 = explode(",", $ing);
+                $ing1 = explode(", ", $ing);
                 $ing_lenght = count($ing1);
                 ?>
                 <div>
                     <?
 
-//                    $r3 = mysqli_fetch_array($res3);
-//                    $all_ing_name_rus0 = $r3['name_rus'];
-//                    $all_ing_name_rus = explode(",",$all_ing_name_rus0);
-//                    print_r($all_ing_name_rus);
-//все ингредиенты из списка продукта в массиве
-                    //print_r($ing1);
 
-
-// это все синонины $r3['synonims']
-                    // это прост лишнее удали
-//                    for($i = 0 ; $i <$ing_lenght; $i++) {
-//                        while ($r3 = mysqli_fetch_array($res3)){
-//                            var_dump($r3['name_en']);
-//                            echo "<hr>";
-//                            if($ing1[$i] == $r3['name_rus']) {
-//                                echo " имя рус - ".$r3['name_rus']."<br>";
-//                            }
-//                            else if ($ing1[i] == $r3['name_en']) {
-//                                echo " имя англ - ".$r3['name_en']."<br>";
-//                            }
-//                            else if ($ing1[i] == $r3['synonims']) {
-//                                echo " синоним  - ".$r3['synonims']."<br>";
-//                            }
-//                            else { echo " я хз";}
-//                        }
-//
-//                    }
-//                   while ( $r3= mysqli_fetch_array($res3)) {
-////                     ШО ТУТ ПРОИСХОДИТ Я НИЧЕГО НЕ ПОНИМАЮ??
-//
-//                       $names_rus_ing0 = $r3['name_rus'];
-//                       // все из синонимов по одному ингредиенту
-//                       $names_rus_ing = explode("," ,  $names_rus_ing0);
-//                        // получается это массив из массивов
-//                       // как перебрать их
-//                       print_r($names_rus_ing);
-//
-//                       $names_en_ing0 = $r3['name_en'];
-//                       // все из синонимов по одному ингредиенту
-//                       $names_en_ing = explode("," ,  $names_en_ing0);
-//
-//                       $names_synonims_ing0 = $r3['synonims'];
-//                       // все из синонимов по одному ингредиенту
-//                       $names_synonims_ing = explode("," , $names_synonims_ing0);
-//
-//                   };
-
-
-
-//                    var_dump($ing1);
                     foreach ($ing1 as $i) { ?>
                     <div class="row ">
+
+                        <?
+                        foreach ($r3 as $ing) {
+                        if($ing['name_en'] == $i) {
+                        ?>
                         <div class="col-1"></div>
                         <div class="col-2">
                             <a> оценка </a>
                         </div>
                         <div class="col-8 ">
-                            <a class="text-dark" href="ingredient.php">
+                            <a class="text-dark" href="ingredient.php?id=<? echo $ing['id_ingredients']; ?>">
                                 <? echo $i;
-                                   $checki = 0;
-//                                $r3 = mysqli_fetch_array($res3);
-//                                print_r($r3['name_rus']);
-                                $r3 = mysqli_fetch_array($res3);
-                                var_dump(json_encode($r3));
-//                                var_dump(json_encode($r3));
-//                                foreach ($r3 as $item) {
-////                                foreach ()
-//                                    $str0 = (string)$i;
-//                                    $str = (string)$item;
-//                                    echo "продукт - " . $str0;
-//                                    echo "<br> ингредиент - " . $str . "<br>";
-//                                }
+
+//        echo $ing['name_en'];
+
+
 
                                 ?>
                             </a>
                         </div>
+                        <? }
+                        } ?>
                     </div>
                     <? } ;?>
                 </div>

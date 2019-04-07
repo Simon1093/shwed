@@ -99,7 +99,9 @@ html, body, head, .intro {
     background-color: firebrick;
 }
 
-
+footer{
+    margin-top: 100px ;
+}
 
 
 /*.topnav {*/

@@ -1,6 +1,8 @@
 <!-- ТУТ ПОМЕНЯТЬ WHERЕ = !!! -->
 
-<?require "navbar.php";?>
+<?
+$title = "Для взрослых";
+require "navbar.php";?>
 
 <?php
 $sql1 = "SELECT * FROM `products` WHERE `categori` = 1";
