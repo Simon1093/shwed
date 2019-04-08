@@ -86,7 +86,7 @@ else {$page = 1 ;}
 <!--                    может такой вид лучшу-->
 <!--                    <a href="#" class="black-text d-flex justify-content-end"><h5>Read more <i class="fas fa-angle-double-right"></i></h5></a>-->
                     <button class="btnStyle waves-effect waves-light btn btn-sm ">
-                       <a  class="text-black-50" href="description.php?id=<?echo $arr_id[$i]?>">Читать больше</a>
+                       <a  class="text-black-50" href="description.php?id=<?echo $arr_id[$i]?>" >Читать больше</a>
                     </button>
 
                 </div>

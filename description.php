@@ -42,32 +42,17 @@ $r3 = mysqli_fetch_all($res3, MYSQLI_ASSOC);
 
 
 
-
-
+               <?  if(isset($_SESSION['id']))
+                {
+?>
                 <button class="btnStyle waves-effect waves-light btn btn-sm " >
                     <a  class="text-black-50 iLike " href="likeproducts.php?id=<?echo $r2['id'];?>" >Мне нравится  </a>
                 </button>
 
-
-
-
-
-
-
-
-
-
-
                 <button class="btnStyle waves-effect waves-light btn btn-sm ">
                     <a  class="text-black-50 " href="seeLater.php?id=<?echo $r2['id'];?>">Прочитать позже </a>
                 </button>
-
-
-
-
-
-
-
+<? }?>
                 <button class="btnStyle waves-effect waves-light btn btn-sm ">
 <!--                    // передает id продукта на ссылку-->
                     <a  class="text-black-50 " href="alling.php?id= <? echo $r2['id']?>"> Смотреть разбор всех ингридиентов </a>
